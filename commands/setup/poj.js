@@ -1,4 +1,4 @@
-import { PojModel } from '../../database/PojModel.js';
+import { Guild } from '../../database/Guild.js';
 
 export default {
 	data: {
@@ -45,22 +45,22 @@ export default {
 		const guildId = interaction.guildID;
 
 		try {
-			let pojData = await PojModel.findOne({ guildId });
+			let pojData = await Guild.findOne({ guildId });
 
 			if (!pojData) {
-				pojData = new PojModel({ guildId, channelIds: [] });
+				pojData = new Guild({ guildId, pojChannels: [] });
 			}
 
-			const channelIds = pojData.channelIds;
+			const pojChannels = pojData.pojChannels;
 
 			if (subCommand === 'add') {
-				if (channelIds.includes(channel)) {
+				if (pojChannels.includes(channel)) {
 					await interaction.createMessage({
 						content: `The <#${channel}> is already added for (POJ) ping for join.`,
 						flags: 64,
 					});
 				} else {
-					channelIds.push(channel);
+					pojChannels.push(channel);
 					await pojData.save();
 					await interaction.createMessage({
 						content: `The <#${channel}> is added for (POJ) ping for join.`,
@@ -68,14 +68,14 @@ export default {
 					});
 				}
 			} else if (subCommand === 'remove') {
-				if (!channelIds.includes(channel)) {
+				if (!pojChannels.includes(channel)) {
 					await interaction.createMessage({
 						content: `The <#${channel}> is not in (POJ) ping for join.`,
 						flags: 64,
 					});
 				} else {
-					const updatedChannels = channelIds.filter((c) => c !== channel);
-					pojData.channelIds = updatedChannels;
+					const updatedChannels = pojChannels.filter((c) => c !== channel);
+					pojData.pojChannels = updatedChannels;
 					await pojData.save();
 					await interaction.createMessage({
 						content: `The <#${channel}> is removed from (POJ) ping for join.`,
@@ -83,9 +83,9 @@ export default {
 					});
 				}
 			} else if (subCommand === 'view') {
-				if (pojData && pojData.channelIds.length > 0) {
+				if (pojData && pojData.pojChannels.length > 0) {
 					let channels = '';
-					pojData.channelIds.map((e) => {
+					pojData.pojChannels.map((e) => {
 						channels += `<#${e}>\n`;
 					});
 					await interaction.createMessage({

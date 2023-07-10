@@ -1,16 +1,16 @@
 import chalk from 'chalk';
-import { PojModel } from '../database/PojModel.js';
+import { Guild } from '../database/PojModel.js';
 
 export function guildMemberAdd(client) {
 	client.on('guildMemberAdd', async (guild, member) => {
 		// POJ function 👇👇👇
 		try {
-			const pojData = await PojModel.findOne({ guildId: guild.id });
+			const Guild = await Guild.findOne({ guildId: guild.id });
 
-			if (pojData && pojData.channelIds.length > 0) {
+			if (Guild && Guild.pojChannels.length > 0) {
 				const welcomeMessage = `${member.mention}!`; // Customize the welcome message using the member's mention and emojis
 
-				pojData.channelIds.forEach(async (channelId) => {
+				Guild.pojChannels.forEach(async (channelId) => {
 					const welcomeChannel = guild.channels.get(channelId);
 					if (welcomeChannel) {
 						const message = await welcomeChannel.createMessage(welcomeMessage);

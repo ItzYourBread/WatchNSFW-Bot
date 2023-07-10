@@ -1,15 +1,15 @@
 import mongoose from 'mongoose';
 
-const pojSchema = new mongoose.Schema({
+const guildSchema = new mongoose.Schema({
   guildId: {
     type: String,
     required: true,
     unique: true,
   },
-  channelIds: {
+  pojChannels: {
     type: [String],
     default: [],
   },
 });
 
-export const PojModel = mongoose.model('Poj', pojSchema);
+export const Guild = mongoose.model('Guild', guildSchema);
