@@ -139,10 +139,16 @@ export function RoleMenu(client) {
 		const channel = guild.channels.get(channelId);
 
 		roleMenus.forEach((roleMenu) => {
+			let description = roleMenu.description;
+
+			if (roleMenu.name === "Colours") {
+				const coloursMention = roleMenu.roles.map((r) => `<@&${r.value}>`).join(", ");
+				description += `\n${coloursMention}`;
+			}
 			let content = {
 				title: roleMenu.name,
 				color: client.config.colour,
-				description: roleMenu.description,
+				description: description,
 				thumbnail: {
 					url: "https://media.discordapp.net/attachments/1102648905088368690/1125024027958853733/C1D285B5-67CB-4E83-B9CC-71831FB167F5.png",
 					height: 150,
@@ -150,6 +156,7 @@ export function RoleMenu(client) {
 				},
 				timestamp: new Date()
 			};
+
 
 			channel.createMessage({ embed: content }).then((message) => {
 				const components = [
