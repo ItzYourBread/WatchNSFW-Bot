@@ -4,6 +4,8 @@ const roleMenus = [
 	{
 		name: 'World Locations',
 		description: "> **Choose your location.**",
+		min: 0,
+		max: 1,
 		roles: [
 			{ name: 'Asia', value: '1125356318543319110' },
 			{ name: 'Europe', value: '1125356392040116379' },
@@ -16,6 +18,8 @@ const roleMenus = [
 	{
 		name: 'Current DMs Status',
 		description: "> **Choose your DMs status.**",
+		min: 0,
+		max: 1,
 		roles: [
 			{ name: 'Ask to DM', value: '1125357618249072711' },
 			{ name: 'DM Closed', value: '1125357694669303858' },
@@ -26,6 +30,8 @@ const roleMenus = [
 	{
 		name: 'Pronouns',
 		description: "> **Choose your pronouns.**",
+		min: 0,
+		max: 3,
 		roles: [
 			{ name: 'He/Him', value: "1125358450076029060" },
 			{ name: 'She/Her', value: "1125358513489711175" },
@@ -35,6 +41,8 @@ const roleMenus = [
 	{
 		name: "Sexuality",
 		description: "> **Choose your sexuality.**",
+		min: 0,
+		max: 1,
 		roles: [
 			{ name: "Asexual", value: "1127181438077390948" },
 			{ name: "Bisexual", value: "1127181490644598784" },
@@ -48,6 +56,8 @@ const roleMenus = [
 	{
 		name: "Sexual Kinks",
 		description: "> **Choose your sexual kink(s).**",
+		min: 0,
+		max: 22,
 		roles: [
 			{ name: "Brat", value: "1127182378360643595" },
 			{ name: "Daddy/Mummy", value: "1127182428528722001" },
@@ -76,6 +86,8 @@ const roleMenus = [
 	{
 		name: 'Relationship Status',
 		description: "> **Choose your current relationship status.**",
+		min: 0,
+		max: 2,
 		roles: [
 			{ name: 'Single', value: "1125359946314285086" },
 			{ name: 'Taken', value: "1125360032192659528" },
@@ -83,6 +95,38 @@ const roleMenus = [
 			{ name: "Not Looking", value: "1125360146680402021" },
 		],
 	},
+	{
+		name: "Colours",
+		description: "> **Choose your favourite colour for WatchMSFW, it will appear in your nickname.**",
+		min: 0,
+		max: 1,
+		roles: [
+			{ name: 'Love Bite', value: "1127295316991946792" },
+			{ name: 'Pop My Cherry', value: "1127295508671631543" },
+			{ name: 'Spank Me', value: "1127295636530810941" },
+			{ name: 'Cheeky Peach', value: "1127295882400911422" },
+			{ name: 'Orgasm Orange', value: "1127296136374395002" },
+			{ name: 'Gold Digga', value: "1127296269761662987" },
+			{ name: 'Cream Pie', value: "1127296508912476239" },
+			{ name: 'Lick Me Lime', value: "1127296632703164466" },
+			{ name: 'Daddy Green', value: "1127296763519320104" },
+			{ name: 'Blowjob Mints', value: "1127297003647406250" },
+			{ name: 'Titty Teal', value: "1127297164939378748" },
+			{ name: 'Sugarbaby Blue', value: "1127297318178263091" },
+			{ name: 'After Dark', value: "1127297506716426270" },
+			{ name: 'Blue Balls', value: "1127297643433971864" },
+			{ name: 'Sex Bomb', value: "1127297752137732106" },
+			{ name: 'Eggplant Purple', value: "1127297918274113666" },
+			{ name: 'Whipped', value: "1127298140781944893" },
+			{ name: 'Lavender Lace', value: "1127298286957629540" },
+			{ name: 'Dusty Purple', value: "1127298405379616913" },
+			{ name: 'French Kisses', value: "1127298569871831080" },
+			{ name: 'Hot Pink', value: "1127298675304042526" },
+			{ name: 'Pussy Popping Pink', value: "1127298890341814342" },
+			{ name: 'Daddy’s Princess', value: "1127299004485607475" },
+			{ name: 'Snowball', value: "1127299418757013596" },
+		]
+	}
 ];
 
 
@@ -121,8 +165,8 @@ export function RoleMenu(client) {
 									value: r.value,
 									description: `Assign the ${r.name} role`,
 								})),
-								min_values: 0,
-								max_values: roleMenu.roles.length,
+								min_values: roleMenu.min,
+								max_values: roleMenu.max,
 							},
 						],
 					},
@@ -185,4 +229,3 @@ export function RoleMenu(client) {
 	});
 
 }
-
