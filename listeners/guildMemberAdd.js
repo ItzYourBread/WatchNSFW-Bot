@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { Guild } from '../database/PojModel.js';
+import { Guild } from '../database/Guild.js';
 
 export function guildMemberAdd(client) {
 	client.on('guildMemberAdd', async (guild, member) => {
