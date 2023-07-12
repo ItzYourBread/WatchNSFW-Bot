@@ -1,4 +1,4 @@
-import { Guild } from '../../database/Guild.js';
+import { GuildData } from '../../database/GuildData.js';
 
 export default {
 	data: {
@@ -45,10 +45,10 @@ export default {
 		const guildId = interaction.guildID;
 
 		try {
-			let pojData = await Guild.findOne({ guildId });
+			let pojData = await GuildData.findOne({ guildId });
 
 			if (!pojData) {
-				pojData = new Guild({ guildId, pojChannels: [] });
+				pojData = new GuildData({ guildId, pojChannels: [] });
 			}
 
 			const pojChannels = pojData.pojChannels;

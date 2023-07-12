@@ -1,16 +1,16 @@
 import chalk from 'chalk';
-import { Guild } from '../database/Guild.js';
+import { GuildData } from '../database/GuildData.js';
 
 export function guildMemberAdd(client) {
 	client.on('guildMemberAdd', async (guild, member) => {
-		const Guild = await Guild.findOne({ guildId: guild.id });
 		
 		try {
-
-			if (Guild && Guild.pojChannels.length > 0) {
+			const guildData = await GuildData.findOne({ guildId: guild.id });
+			
+			if (guildData && guildData.pojChannels.length > 0) {
 				const welcomeMessage = `${member.mention}!`; // Customize the welcome message using the member's mention and emojis
 
-				Guild.pojChannels.forEach(async (channelId) => {
+				guildData.pojChannels.forEach(async (channelId) => {
 					const welcomeChannel = guild.channels.get(channelId);
 					if (welcomeChannel) {
 						const message = await welcomeChannel.createMessage(welcomeMessage);

@@ -12,4 +12,4 @@ const guildSchema = new mongoose.Schema({
   },
 });
 
-export const Guild = mongoose.model('Guild', guildSchema);
+export const GuildData = mongoose.model('GuildData', guildSchema);
