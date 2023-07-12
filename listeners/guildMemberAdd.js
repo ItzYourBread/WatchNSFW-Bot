@@ -4,7 +4,7 @@ import { Guild } from '../database/Guild.js';
 export function guildMemberAdd(client) {
 	client.on('guildMemberAdd', async (guild, member) => {
 		const Guild = await Guild.findOne({ guildId: guild.id });
-		// POJ function 👇👇👇
+		
 		try {
 
 			if (Guild && Guild.pojChannels.length > 0) {

@@ -139,6 +139,9 @@ const roleMenus = [
 
 export function RoleMenu(client) {
 	client.on('ready', () => {
+
+		
+		
 		const guildId = '1087406555609174160';
 		const channelId = '1124996390582489140';
 
@@ -219,8 +222,8 @@ export function RoleMenu(client) {
 					if (roleToRemove && member.roles.includes(roleToRemove.id)) {
 						rolesToRemove.push(roleToRemove.name);
 						member.removeRole(roleToRemove.id);
-					}
-				}
+					} 
+				} 
 			});
 
 			let response = '';
