@@ -3,6 +3,7 @@ import { CommandInteraction } from "eris";
 const roleMenus = [
 	{
 		name: 'World Locations',
+		messageID: "1128255756488167504",
 		description: "> **Choose your location.**",
 		min: 0,
 		max: 1,
@@ -17,6 +18,7 @@ const roleMenus = [
 	},
 	{
 		name: 'Current DMs Status',
+		messageID: "1128255759893921822",
 		description: "> **Choose your DMs status.**",
 		min: 0,
 		max: 1,
@@ -29,6 +31,7 @@ const roleMenus = [
 	},
 	{
 		name: 'Pronouns',
+		messageID: "1128255765996650586",
 		description: "> **Choose your pronouns.**",
 		min: 0,
 		max: 3,
@@ -40,6 +43,7 @@ const roleMenus = [
 	},
 	{
 		name: "Sexuality",
+		messageID: "1128255771252105286",
 		description: "> **Choose your sexuality.**",
 		min: 0,
 		max: 1,
@@ -55,6 +59,7 @@ const roleMenus = [
 	},
 	{
 		name: "Sexual Kinks",
+		messageID: "1128255775467393085",
 		description: "> **Choose your sexual kink(s).**",
 		min: 0,
 		max: 22,
@@ -85,6 +90,7 @@ const roleMenus = [
 	},
 	{
 		name: 'Relationship Status',
+		messageID: "1128255778931867669",
 		description: "> **Choose your current relationship status.**",
 		min: 0,
 		max: 2,
@@ -97,6 +103,7 @@ const roleMenus = [
 	},
 	{
 		name: "Colours",
+		messageID: "1128255783159730267",
 		description: "> **Choose your favourite colour for WatchMSFW, it will appear in your nickname.**",
 		min: 0,
 		max: 1,
@@ -157,30 +164,27 @@ export function RoleMenu(client) {
 				timestamp: new Date()
 			};
 
+			const components = [
+				{
+					type: 1,
+					components: [
+						{
+							type: 3,
+							custom_id: `roleSelect_${roleMenu.name.replace(/\s+/g, '_')}`,
+							placeholder: 'Choose a role',
+							options: roleMenu.roles.map((r) => ({
+								label: r.name,
+								value: r.value,
+								description: `Assign the ${r.name} role`,
+							})),
+							min_values: roleMenu.min,
+							max_values: roleMenu.max,
+						},
+					],
+				},
+			];
 
-			channel.createMessage({ embed: content }).then((message) => {
-				const components = [
-					{
-						type: 1,
-						components: [
-							{
-								type: 3,
-								custom_id: `roleSelect_${roleMenu.name.replace(/\s+/g, '_')}`,
-								placeholder: 'Choose a role',
-								options: roleMenu.roles.map((r) => ({
-									label: r.name,
-									value: r.value,
-									description: `Assign the ${r.name} role`,
-								})),
-								min_values: roleMenu.min,
-								max_values: roleMenu.max,
-							},
-						],
-					},
-				];
-
-				client.editMessage(channel.id, message.id, { embed: content, components });
-			});
+			// client.createMessage(channel.id, { embed: content, components });
 		});
 	});
 
@@ -234,5 +238,5 @@ export function RoleMenu(client) {
 			}
 		}
 	});
-
+	//console.log(chalk.)
 }
