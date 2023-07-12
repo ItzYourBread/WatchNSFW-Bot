@@ -3,9 +3,9 @@ import { Guild } from '../database/Guild.js';
 
 export function guildMemberAdd(client) {
 	client.on('guildMemberAdd', async (guild, member) => {
+		const Guild = await Guild.findOne({ guildId: guild.id });
 		// POJ function 👇👇👇
 		try {
-			const Guild = await Guild.findOne({ guildId: guild.id });
 
 			if (Guild && Guild.pojChannels.length > 0) {
 				const welcomeMessage = `${member.mention}!`; // Customize the welcome message using the member's mention and emojis
