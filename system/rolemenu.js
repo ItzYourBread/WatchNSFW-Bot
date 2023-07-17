@@ -135,12 +135,10 @@ const roleMenus = [
 		]
 	}
 ];
-
+export { roleMenus };
 
 export function RoleMenu(client) {
 	client.on('ready', () => {
-
-		
 		
 		const guildId = '1087406555609174160';
 		const channelId = '1124996390582489140';
@@ -209,13 +207,15 @@ export function RoleMenu(client) {
 
 			const rolesToAdd = [];
 			const rolesToRemove = [];
-
+			
 			roleMenu.roles.forEach((role) => {
 				if (selectedRoles.includes(role.value)) {
 					const roleToAdd = guild.roles.get(role.value);
 					if (roleToAdd && !member.roles.includes(roleToAdd.id)) {
 						rolesToAdd.push(roleToAdd.name);
 						member.addRole(roleToAdd.id);
+					} else if (roleToAdd && member.roles.includes(roleToAdd.id)) {
+						
 					}
 				} else {
 					const roleToRemove = guild.roles.get(role.value);
@@ -225,20 +225,7 @@ export function RoleMenu(client) {
 					} 
 				} 
 			});
-
-			let response = '';
-
-			if (rolesToAdd.length > 0) {
-				response += `You have been assigned the following roles: ${rolesToAdd.join(', ')}. `;
-			}
-
-			if (rolesToRemove.length > 0) {
-				response += `You have been removed from the following roles: ${rolesToRemove.join(', ')}. `;
-			}
-
-			if (response) {
-				interaction.createMessage({ content: response, flags: 64, ephemeral: true });
-			}
+			await interaction.acknowledge()
 		}
 	});
 	//console.log(chalk.)
