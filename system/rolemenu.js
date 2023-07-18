@@ -135,16 +135,56 @@ const roleMenus = [
 		]
 	}
 ];
-export { roleMenus };
+const categoryDividers = {
+	"World/DMs/Pronouns/Sexuality": "1125355992872394883",
+	"Relationship Status": "1126926629155905576",
+	"Sexual Kinks": "1127181008329003048",
+	"Colours": "1127292328030257266"
+};
 
 export function RoleMenu(client) {
 	client.on('ready', () => {
-		
+
 		const guildId = '1087406555609174160';
 		const channelId = '1124996390582489140';
 
 		const guild = client.guilds.get(guildId);
 		const channel = guild.channels.get(channelId);
+
+		// Function to assign dividers for each category
+		function assignCategoryDividers() {
+			for (const [category, dividerId] of Object.entries(categoryDividers)) {
+				const roleMenuNames = category === "World/DMs/Pronouns/Sexuality"
+					? ["World Locations", "Current DMs Status", "Pronouns", "Sexuality"]
+					: [category];
+
+				const relevantRoleMenus = roleMenus.filter(menu =>
+					roleMenuNames.includes(menu.name)
+				);
+
+				const roleIds = relevantRoleMenus.flatMap(menu =>
+					menu.roles.map(role => role.value)
+				);
+
+				guild.members.forEach((member) => {
+					const hasRole = member.roles.some(role => roleIds.includes(role));
+
+					if (hasRole && !member.roles.includes(dividerId)) {
+						member.addRole(dividerId);
+					} else if (!hasRole && member.roles.includes(dividerId)) {
+						member.removeRole(dividerId);
+					}
+				});
+			}
+		}
+
+		// Initial assignment on bot start
+		assignCategoryDividers();
+
+		// Repeat assignment every minute
+		setInterval(() => {
+			assignCategoryDividers();
+		}, 5000);
 
 		roleMenus.forEach((roleMenu) => {
 			let description = roleMenu.description;
@@ -187,46 +227,45 @@ export function RoleMenu(client) {
 
 			// client.createMessage(channel.id, { embed: content, components });
 		});
-	});
 
-	client.on('interactionCreate', async (interaction) => {
-		if (interaction instanceof CommandInteraction) {
-			// Check if the interaction is a slash command
-			return;
-		}
+		client.on('interactionCreate', async (interaction) => {
+			if (interaction instanceof CommandInteraction) {
+				// Check if the interaction is a slash command
+				return;
+			}
 
-		const interactionIdParts = interaction.data.custom_id.split('_');
-		const menuName = interactionIdParts.slice(1).join(' ');
+			const interactionIdParts = interaction.data.custom_id.split('_');
+			const menuName = interactionIdParts.slice(1).join(' ');
 
-		const roleMenu = roleMenus.find((rm) => rm.name === menuName);
+			const roleMenu = roleMenus.find((rm) => rm.name === menuName);
 
-		if (roleMenu) {
-			const selectedRoles = interaction.data.values;
-			const guild = client.guilds.get(interaction.guildID);
-			const member = guild.members.get(interaction.member.user.id);
+			if (roleMenu) {
+				const selectedRoles = interaction.data.values;
+				const guild = client.guilds.get(interaction.guildID);
+				const member = guild.members.get(interaction.member.user.id);
 
-			const rolesToAdd = [];
-			const rolesToRemove = [];
-			
-			roleMenu.roles.forEach((role) => {
-				if (selectedRoles.includes(role.value)) {
-					const roleToAdd = guild.roles.get(role.value);
-					if (roleToAdd && !member.roles.includes(roleToAdd.id)) {
-						rolesToAdd.push(roleToAdd.name);
-						member.addRole(roleToAdd.id);
-					} else if (roleToAdd && member.roles.includes(roleToAdd.id)) {
-						
+				const rolesToAdd = [];
+				const rolesToRemove = [];
+
+				roleMenu.roles.forEach((role) => {
+					if (selectedRoles.includes(role.value)) {
+						const roleToAdd = guild.roles.get(role.value);
+						if (roleToAdd && !member.roles.includes(roleToAdd.id)) {
+							rolesToAdd.push(roleToAdd.name);
+							member.addRole(roleToAdd.id);
+						} else if (roleToAdd && member.roles.includes(roleToAdd.id)) {
+
+						}
+					} else {
+						const roleToRemove = guild.roles.get(role.value);
+						if (roleToRemove && member.roles.includes(roleToRemove.id)) {
+							rolesToRemove.push(roleToRemove.name);
+							member.removeRole(roleToRemove.id);
+						}
 					}
-				} else {
-					const roleToRemove = guild.roles.get(role.value);
-					if (roleToRemove && member.roles.includes(roleToRemove.id)) {
-						rolesToRemove.push(roleToRemove.name);
-						member.removeRole(roleToRemove.id);
-					} 
-				} 
-			});
-			await interaction.acknowledge()
-		}
+				});
+				await interaction.acknowledge()
+			}
+		});
 	});
-	//console.log(chalk.)
 }
