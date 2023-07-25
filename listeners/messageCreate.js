@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import 'dotenv/config';
+import { anti_links } from "../system/anti-links.js";
 
 export async function messageCreate(client) {
   client.on('messageCreate', async (msg) => {
@@ -15,6 +16,7 @@ export async function messageCreate(client) {
       }
     }
   });
+	anti_links(client);
 
   console.log(chalk.cyanBright('[Listener] messageCreate is loaded'));
 }

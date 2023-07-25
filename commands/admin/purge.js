@@ -13,6 +13,11 @@ export default {
 		await interaction.defer(64);
 		const amount = interaction.data.options[0].value;
 
+		if (!interaction.member.permissions.has(["manageMessages"])) {
+		    await interaction.editOriginalMessage("You don't have rights to use this command.");
+			return;
+		}
+
 		if (amount <= 0 || amount > 3000) {
 			await interaction.editOriginalMessage('Amount must be between 1 and 3,000.');
 			return;
