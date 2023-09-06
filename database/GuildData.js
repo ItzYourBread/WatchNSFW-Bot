@@ -1,14 +1,14 @@
 import mongoose from 'mongoose';
 
 const guildSchema = new mongoose.Schema({
-  guildId: {
+  guildID: {
     type: String,
     required: true,
     unique: true,
   },
-  pojChannels: {
-    type: [String],
-    default: [],
+  collabChannels: {
+    type: [Array], 
+    default: [], // You can provide a default empty array if needed
   },
 });
 

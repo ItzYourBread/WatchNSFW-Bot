@@ -3,28 +3,6 @@ import { GuildData } from '../database/GuildData.js';
 
 export function guildMemberAdd(client) {
 	client.on('guildMemberAdd', async (guild, member) => {
-		
-		try {
-			const guildData = await GuildData.findOne({ guildId: guild.id });
-			
-			if (guildData && guildData.pojChannels.length > 0) {
-				const welcomeMessage = `${member.mention}!`; // Customize the welcome message using the member's mention and emojis
-
-				guildData.pojChannels.forEach(async (channelId) => {
-					const welcomeChannel = guild.channels.get(channelId);
-					if (welcomeChannel) {
-						const message = await welcomeChannel.createMessage(welcomeMessage);
-						setTimeout(() => {
-							message.delete();
-						}, 2000); // Delete the message after 2 seconds (adjust the time as needed)
-					}
-				});
-			} else {
-				console.log(chalk.yellow(`[Warning] No POJ channels found in guild "${guild.name}"`));
-			}
-		} catch (error) {
-			console.error('Error:', error);
-		}
 
 		try {
 			const WelcomeChannelId = "1087427438964908083";

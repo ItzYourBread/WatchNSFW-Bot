@@ -14,7 +14,7 @@ export default {
 		const amount = interaction.data.options[0].value;
 
 		if (!interaction.member.permissions.has(["manageMessages"])) {
-		    await interaction.editOriginalMessage("You don't have rights to use this command.");
+			await interaction.editOriginalMessage("You don't have rights to use this command.");
 			return;
 		}
 
@@ -30,10 +30,10 @@ export default {
 			const messageIds = messages.map((msg) => msg.id);
 
 			await channel.deleteMessages(messageIds);
-			await interaction.editOriginalMessage({ content: `Successfully purged ${amount} messages.`});
+			await interaction.editOriginalMessage({ content: `Successfully purged ${amount} messages.` });
 		} catch (error) {
 			console.error('Error:', error);
-			await interaction.editOriginalMessage({ content: 'An error occurred while purging messages.'});
+			await interaction.editOriginalMessage({ content: 'An error occurred while purging messages.' });
 		}
 	},
 };
