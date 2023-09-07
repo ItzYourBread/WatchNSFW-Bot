@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import { RoleMenu } from "../system/rolemenu.js";
+import { Collab } from "../system/collab.js";
 
 const categoryDividers = {
 	"World Locations": "1125355992872394883",
@@ -24,5 +25,6 @@ export function ready(client) {
 		);
 	});
 	RoleMenu(client);
+	Collab(client);
 	console.log(chalk.cyanBright('[Listener] ready is loaded'));
 }

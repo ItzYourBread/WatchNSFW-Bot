@@ -25,7 +25,7 @@ export function anti_links(client) {
 			const guild = client.guilds.get("1087406555609174160");
 			const member = guild.members.get(msg.member.id);
 
-			if (linkCounter.get(userID) >= 3) {
+			if (linkCounter.get(userID) >= 1) {
 				if (msg.member) {
 					await member.addRole("1132969839795912744")
 				}
