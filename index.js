@@ -20,7 +20,7 @@ const client = new Client(process.env.TOKEN, {
 	lastShardID: 0,
 	maxShards: 0,
 	allowedMentions: {
-		everyone: false,
+		everyone: true,
 		users: true,
 		roles: false,
 		repliedUser: true

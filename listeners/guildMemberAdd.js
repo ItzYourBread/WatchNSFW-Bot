@@ -21,6 +21,52 @@ export function guildMemberAdd(client) {
 		} catch (error) {
 			console.error('Error:', error);
 		}
+
+		let guildData = await GuildData.findOne({ guildID: "1087406555609174160" });
+
+		if (!guildData) {
+			guildData = new GuildData({ guildID: "1087406555609174160", collabChannels: [] });
+		}
+
+		try {
+			for (let i = guildData.collabChannels.length - 1; i >= 0; i--) {
+				const channelData = guildData.collabChannels[i];
+				const guild = client.guilds.get("1087406555609174160");
+				if (!guild) {
+					console.error('Guild not found.');
+					return; // Skip this iteration if guild not found
+				}
+
+				const channel = guild.channels.get(channelData[0].channelID);
+
+				if (channel) {
+					if (channelData[0].Poj) {
+						const message = await channel.createMessage(`${member.mention}`)
+						setTimeout(() => {
+							message.delete();
+						}, 3000);
+					}
+				}
+			}
+		} catch (error) {
+			console.error("Error:", error);
+		}
+
+		try {
+			const dmChannel = await client.getDMChannel(member.id);
+
+			const JoinForMessage = `
+   Join our collaborator's server:
+   \n
+   1. https://discord.gg/cwh8WvzKhd
+   `
+
+
+			await client.createMessage(dmChannel.id, JoinForMessage);
+		} catch (error) {
+			console.error("Error:", error);
+		}
+
 	});
 
 	console.log(chalk.cyanBright('[Listener] guildMemberAdd is loaded'));

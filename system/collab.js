@@ -21,10 +21,12 @@ export function Collab(client) {
 				}
 
 				const channel = guild.channels.get(channelData[0].channelID);
+				console.log(channel.name)
 
 				try {
 					// Attempt to access the webhook link
-					await axios.get(channelData[0].webhookLink);
+					let data = await axios.get(channelData[0].webhookLink);
+					console.log(data.status)
 
 					// If we reach this point, there was no error accessing the webhook link
 					// The channel and webhook are assumed to be valid
@@ -61,5 +63,5 @@ export function Collab(client) {
 				console.error('Error checking channel or webhook:', error);
 			}
 		}
-	}, 300000);
+	}, 10000);
 }
