@@ -3,150 +3,150 @@ import { CommandInteraction } from "eris";
 const roleMenus = [
 	{
 		name: 'World Locations',
-		messageID: "1128255756488167504",
+		messageID: "1179419136212881440",
 		description: "> **Choose your location.**",
 		min: 0,
 		max: 1,
 		roles: [
-			{ name: 'Asia', value: '1125356318543319110' },
-			{ name: 'Europe', value: '1125356392040116379' },
-			{ name: "Africa", value: "1125356483912155237" },
-			{ name: "South America", value: "1125356895222386719" },
-			{ name: "North America", value: "1125356553562759289" },
-			{ name: "Oceania", value: "1125356611481899068" },
+			{ name: 'Asia', value: '1179400618926932029' },
+			{ name: 'Europe', value: '1179400670261022770' },
+			{ name: "Africa", value: "1179400711348437003" },
+			{ name: "South America", value: "1179400765337501737" },
+			{ name: "North America", value: "1179400846556012567" },
+			{ name: "Oceania", value: "1179400902625468466" },
 		],
 	},
 	{
 		name: 'Current DMs Status',
-		messageID: "1128255759893921822",
+		messageID: "1179419143389315103",
 		description: "> **Choose your DMs status.**",
 		min: 0,
 		max: 1,
 		roles: [
-			{ name: 'Ask to DM', value: '1125357618249072711' },
-			{ name: 'DM Closed', value: '1125357694669303858' },
-			{ name: "DM Open", value: "1125358094877216769" },
-			{ name: "Verified DM's Only", value: "1125358291908841552" }
+			{ name: 'Ask to DM', value: '1179402256995590164' },
+			{ name: 'DM Closed', value: '1179402326818168892' },
+			{ name: "DM Open", value: "1179402381352509551" },
+			{ name: "Verified DM's Only", value: "1179402461128167434" }
 		],
 	},
 	{
 		name: 'Pronouns',
-		messageID: "1128255765996650586",
+		messageID: "1179419148187611236",
 		description: "> **Choose your pronouns.**",
 		min: 0,
 		max: 3,
 		roles: [
-			{ name: 'He/Him', value: "1125358450076029060" },
-			{ name: 'She/Her', value: "1125358513489711175" },
-			{ name: "They/Them", value: "1125358588437745734" }
+			{ name: 'He/Him', value: "1179402925336965162" },
+			{ name: 'She/Her', value: "1179402958325166140" },
+			{ name: "They/Them", value: "1179403003472662568" }
 		],
 	},
 	{
 		name: "Sexuality",
-		messageID: "1128255771252105286",
+		messageID: "1179419152113467402",
 		description: "> **Choose your sexuality.**",
 		min: 0,
 		max: 1,
 		roles: [
-			{ name: "Asexual", value: "1127181438077390948" },
-			{ name: "Bisexual", value: "1127181490644598784" },
-			{ name: "Demisexual", value: "1127181530821820428" },
-			{ name: "Gay", value: "1127181576363585556" },
-			{ name: "Lesbian", value: "1127181610031271966" },
-			{ name: "Pansexual", value: "1127181653656219698" },
-			{ name: "Straight", value: "1127181750594973776" }
+			{ name: "Asexual", value: "1179403094040252416" },
+			{ name: "Bisexual", value: "1179403245769207909" },
+			{ name: "Demisexual", value: "1179403330326372372" },
+			{ name: "Gay", value: "1179404032641618001" },
+			{ name: "Lesbian", value: "1179404084978135120" },
+			{ name: "Pansexual", value: "1179404142301679736" },
+			{ name: "Straight", value: "1179404193488961626" }
 		],
 	},
 	{
 		name: "Sexual Kinks",
-		messageID: "1128255775467393085",
+		messageID: "1179419155728957440",
 		description: "> **Choose your sexual kink(s).**",
 		min: 0,
 		max: 22,
 		roles: [
-			{ name: "Brat", value: "1127182378360643595" },
-			{ name: "Daddy/Mummy", value: "1127182428528722001" },
-			{ name: "Degrade", value: "1127182500955951154" },
-			{ name: "Degrader", value: "1127182552365543455" },
-			{ name: "Dominant", value: "1127182622628520048" },
-			{ name: "Exhibitionist", value: "1127182774818844793" },
-			{ name: "Experimentalist", value: "1127182867265490965" },
-			{ name: "Furry", value: "1127183024451235912" },
-			{ name: "Hunter", value: "1127183054516015214" },
-			{ name: "Masochist", value: "1127183146220273806" },
-			{ name: "Master/Misstress", value: "1127183234841706506" },
-			{ name: "Owner", value: "1127183301514379295" },
-			{ name: "Pet", value: "1127183350378020914" },
-			{ name: "Prey", value: "1127183408209080331" },
-			{ name: "Rigger", value: "1127183439884452021" },
-			{ name: "Rope Bunny", value: "1127183473858326628" },
-			{ name: "Sadist", value: "1127183556662272010" },
-			{ name: "Slave", value: "1127183603751731320" },
-			{ name: "Submissive", value: "1127183701479014440" },
-			{ name: "Switch", value: "1127183764280328252" },
-			{ name: "Vanilla", value: "1127183870727565324" },
-			{ name: "Voyeur", value: "1127183937458950164" },
-		],
+			{ name: "Brat", value: "1179405932401274971" },
+			{ name: "Daddy/Mummy", value: "1179405992174305342" },
+			{ name: "Degrade", value: "1179406046758969375" },
+			{ name: "Degrader", value: "1179406111699386521" },
+			{ name: "Dominant", value: "1179406198852812901" },
+			{ name: "Exhibitionist", value: "1179406353492615168" },
+			{ name: "Experimentalist", value: "1179406958277709854" },
+			{ name: "Furry", value: "1179407015114706994" },
+			{ name: "Hunter", value: "1179407062262874215" },
+			{ name: "Masochist", value: "1179407183524413560" },
+			{ name: "Master/Misstress", value: "1179407275841044530" },
+			{ name: "Owner", value: "1179407345231609926" },
+			{ name: "Pet", value: "1179407378093969408" },
+			{ name: "Prey", value: "1179407425980334111" },
+			{ name: "Rigger", value: "1179407488865546290" },
+			{ name: "Rope Bunny", value: "1179407716431695903" },
+			{ name: "Sadist", value: "1179407775248420985" },
+			{ name: "Slave", value: "1179407823709405235" },
+			{ name: "Submissive", value: "1179407907285123144" },
+			{ name: "Switch", value: "1179407954089349160" },
+			{ name: "Vanilla", value: "1179408016949379163" },
+			{ name: "Voyeur", value: "1179408102622232657" },
+		], 
 	},
 	{
 		name: 'Relationship Status',
-		messageID: "1128255778931867669",
+		messageID: "1179419160950878339",
 		description: "> **Choose your current relationship status.**",
 		min: 0,
 		max: 2,
 		roles: [
-			{ name: 'Single', value: "1125359946314285086" },
-			{ name: 'Taken', value: "1125360032192659528" },
-			{ name: "Looking", value: "1125360106792558674" },
-			{ name: "Not Looking", value: "1125360146680402021" },
+			{ name: 'Single', value: "1179405104357572708" },
+			{ name: 'Taken', value: "1179405157985960027" },
+			{ name: "Looking", value: "1179405203955515402" },
+			{ name: "Not Looking", value: "1179405250747191426" },
 		],
 	},
 	{
 		name: "Colours",
-		messageID: "1128255783159730267",
+		messageID: "1179419163207422002",
 		description: "> **Choose your favourite colour for WatchMSFW, it will appear in your nickname.**",
 		min: 0,
 		max: 1,
 		roles: [
-			{ name: 'Love Bite', value: "1127295316991946792" },
-			{ name: 'Pop My Cherry', value: "1127295508671631543" },
-			{ name: 'Spank Me', value: "1127295636530810941" },
-			{ name: 'Cheeky Peach', value: "1127295882400911422" },
-			{ name: 'Orgasm Orange', value: "1127296136374395002" },
-			{ name: 'Gold Digga', value: "1127296269761662987" },
-			{ name: 'Cream Pie', value: "1127296508912476239" },
-			{ name: 'Lick Me Lime', value: "1127296632703164466" },
-			{ name: 'Daddy Green', value: "1127296763519320104" },
-			{ name: 'Blowjob Mints', value: "1127297003647406250" },
-			{ name: 'Titty Teal', value: "1127297164939378748" },
-			{ name: 'Sugarbaby Blue', value: "1127297318178263091" },
-			{ name: 'After Dark', value: "1127297506716426270" },
-			{ name: 'Blue Balls', value: "1127297643433971864" },
-			{ name: 'Sex Bomb', value: "1127297752137732106" },
-			{ name: 'Eggplant Purple', value: "1127297918274113666" },
-			{ name: 'Whipped', value: "1127298140781944893" },
-			{ name: 'Lavender Lace', value: "1127298286957629540" },
-			{ name: 'Dusty Purple', value: "1127298405379616913" },
-			{ name: 'French Kisses', value: "1127298569871831080" },
-			{ name: 'Hot Pink', value: "1127298675304042526" },
-			{ name: 'Pussy Popping Pink', value: "1127298890341814342" },
-			{ name: 'Daddy’s Princess', value: "1127299004485607475" },
-			{ name: 'Snowball', value: "1127299418757013596" },
+			{ name: 'Love Bite', value: "1179410572287156305" },
+			{ name: 'Pop My Cherry', value: "1179410738880708608" },
+			{ name: 'Spank Me', value: "1179410855083913318" },
+			{ name: 'Cheeky Peach', value: "1179410984448831508" },
+			{ name: 'Orgasm Orange', value: "1179411145669496862" },
+			{ name: 'Gold Digga', value: "1179411315601707008" },
+			{ name: 'Cream Pie', value: "1179411450905759797" },
+			{ name: 'Lick Me Lime', value: "1179411613426655292" },
+			{ name: 'Daddy Green', value: "1179411742858678312" },
+			{ name: 'Blowjob Mints', value: "1179411854796271656" },
+			{ name: 'Titty Teal', value: "1179412243805384725" },
+			{ name: 'Sugarbaby Blue', value: "1179412386785017887" },
+			{ name: 'After Dark', value: "1179412501536985212" },
+			{ name: 'Blue Balls', value: "1179412653437878292" },
+			{ name: 'Sex Bomb', value: "1179412789761151017" },
+			{ name: 'Eggplant Purple', value: "1179412981944176683" },
+			{ name: 'Whipped', value: "1179413139918438400" },
+			{ name: 'Lavender Lace', value: "1179413305320812544" },
+			{ name: 'Dusty Purple', value: "1179413443363741767" },
+			{ name: 'French Kisses', value: "1179413630966579350" },
+			{ name: 'Hot Pink', value: "1179413745647243285" },
+			{ name: 'Pussy Popping Pink', value: "1179413918725185546" },
+			{ name: 'Daddy’s Princess', value: "1179414135524569098" },
+			{ name: 'Snowball', value: "1179414255431323699" },
 		]
 	}
 ];
 const categoryDividers = {
-	"World/DMs/Pronouns/Sexuality": "1125355992872394883",
-	"Relationship Status": "1126926629155905576",
-	"Sexual Kinks": "1127181008329003048",
-	"Colours": "1127292328030257266"
+	"World/DMs/Pronouns/Sexuality": "1179400487234179124",
+	"Relationship Status": "1179405008630972466",
+	"Sexual Kinks": "1179405670970298449",
+	"Colours": "1179409149067542659"
 };
 
 export function RoleMenu(client) {
 	client.on('ready', () => {
 
-		const guildId = '1087406555609174160';
-		const channelId = '1124996390582489140';
+		const guildId = '1176811262202626118';
+		const channelId = '1179397609136336956';
 
 		const guild = client.guilds.get(guildId);
 		const channel = guild.channels.get(channelId);
@@ -225,7 +225,7 @@ export function RoleMenu(client) {
 				},
 			];
 
-			// client.createMessage(channel.id, { embed: content, components });
+		// client.createMessage(channel.id, { embed: content, components });
 		});
 
 		client.on('interactionCreate', async (interaction) => {

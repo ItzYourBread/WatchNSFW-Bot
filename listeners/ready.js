@@ -1,21 +1,20 @@
 import chalk from 'chalk';
 import { RoleMenu } from "../system/rolemenu.js";
-import { Collab } from "../system/collab.js";
 
 const categoryDividers = {
-	"World Locations": "1125355992872394883",
-	"Current DMs Status": "1125355992872394883",
-	"Pronouns": "1125355992872394883",
-	"Relationship Status": "1126926629155905576",
-	"Sexuality": "1125355992872394883",
-	"Sexual Kinks": "1127181008329003048",
-	"Colours": "1127292328030257266"
+	"World Locations": "1179400487234179124",
+	"Current DMs Status": "1179400487234179124",
+	"Pronouns": "1179400487234179124",
+	"Relationship Status": "1179405008630972466",
+	"Sexuality": "1179400487234179124",
+	"Sexual Kinks": "1179405670970298449",
+	"Colours": "1179409149067542659"
 };
 
 export function ready(client) {
 	client.on('ready', () => {
 		client.editStatus('online', {
-			name: 'From WatchNSFW',
+			name: 'Managing WatchNSFW.',
 			type: 0,
 		});
 		console.log(
@@ -25,6 +24,5 @@ export function ready(client) {
 		);
 	});
 	RoleMenu(client);
-	Collab(client);
 	console.log(chalk.cyanBright('[Listener] ready is loaded'));
 }
