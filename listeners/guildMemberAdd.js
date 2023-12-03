@@ -55,13 +55,7 @@ export function guildMemberAdd(client) {
 		try {
 			// 5 different channels to mention the new member
 			const channelIds = [
-				"1177185619202560010",
-				"1177995843912081489",
-				"1177995892905738240",
-				"1178000410653507594",
-				"1178000446380589227",
-				"1178000490441736243",
-				"1178000601708245132"
+				"1177185619202560010"
 			];
 			const mentionDelay = 3000; // 3 seconds
 			for (let i = 0; i < channelIds.length; i++) {
