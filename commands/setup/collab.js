@@ -50,7 +50,6 @@ export default {
 			categoryID = "1179786386925174825"
 		}
 
-		// Webhook is active, create the channel
 		const guild = client.guilds.get("1176811262202626118"); // Replace with your guild ID
 		const category = guild.channels.get(categoryID);
 
