@@ -198,7 +198,7 @@ export function RoleMenu(client) {
 				color: client.config.colour,
 				description: description,
 				thumbnail: {
-					url: "https://media.discordapp.net/attachments/1102648905088368690/1125024027958853733/C1D285B5-67CB-4E83-B9CC-71831FB167F5.png",
+					url: "https://cdn.discordapp.com/attachments/1193652080292921434/1193838749814112286/C1D285B5-67CB-4E83-B9CC-71831FB167F5.png?ex=65ae2bfa&is=659bb6fa&hm=7fa99022a371a6fd7127e22c1d75cf52fe6c6e79fcf1743bec019f974ff847d6&",
 					height: 150,
 					width: 150
 				},
@@ -225,7 +225,7 @@ export function RoleMenu(client) {
 				},
 			];
 
-		// client.createMessage(channel.id, { embed: content, components });
+		 // client.createMessage(channel.id, { embed: content, components });
 		});
 
 		client.on('interactionCreate', async (interaction) => {
