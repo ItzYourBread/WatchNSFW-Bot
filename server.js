@@ -1,8 +1,7 @@
 import express from "express";
-import fs from "fs";
+import "dotenv/config";
 
 const app = express();
-const PORT = 3000;
 
 // Define an array to capture console log and error messages
 const consoleMessages = [];
@@ -45,7 +44,7 @@ app.get("/console", (req, res) => {
   `);
 });
 
-app.listen(PORT, () => {
-	console.log(`Server is running on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+	console.log(`Server is running on port ${process.env.PORT}`);
 });
 
