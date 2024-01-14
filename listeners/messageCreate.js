@@ -22,7 +22,7 @@ export async function messageCreate(client) {
 				})
 				setTimeout(() => {
 					warningMessage.delete();
-				}, 5000);
+				}, 8000);
 			}
 
 			if (msg.attachments.length > 0) {
