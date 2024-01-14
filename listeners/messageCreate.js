@@ -1,6 +1,8 @@
 import chalk from 'chalk';
 import 'dotenv/config';
 
+import { anti_links } from "../system/anti-links.js";
+
 export async function messageCreate(client) {
   client.on('messageCreate', async (msg) => {
     if (msg.channel.id === '1194186144406061156') {
@@ -14,6 +16,8 @@ export async function messageCreate(client) {
         await msg.addReaction('wn_pass:1194234138534875137'); // Pass reaction
       }
     }
+
+	  anti_links(client);
   });
 
   console.log(chalk.cyanBright('[Listener] messageCreate is loaded'));
