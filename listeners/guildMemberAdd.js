@@ -59,8 +59,7 @@ export function guildMemberAdd(client) {
 				"1186241336236576821",
 				"1212738498314899476",
 				"1212738914612412417",
-				"1212738588593364992",
-				"1207326620814409848"
+				"1212738588593364992"
 			];
 			const mentionDelay = 3000; // 3 seconds
 			for (let i = 0; i < channelIds.length; i++) {
