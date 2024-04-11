@@ -9,7 +9,7 @@ import config from "./config.js";
 console.clear();
 console.log(
 	chalk.hex('#DEADED')(
-		figlet.textSync("WatchNSFW", { horizontalLayout: 'full' })
+		figlet.textSync("NSFW", { horizontalLayout: 'full' })
 	)
 );
 

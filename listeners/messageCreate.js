@@ -32,7 +32,7 @@ export async function messageCreate(client) {
 			}
 		}
 
-		
+		anti_links(client);
 	});
 
 	console.log(chalk.cyanBright('[Listener] messageCreate is loaded'));
