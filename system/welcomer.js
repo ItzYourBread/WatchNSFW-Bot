@@ -1,5 +1,5 @@
 export function welcomer(client) {
-    client.on("guildMemberAdd", async () => {
+    client.on("guildMemberAdd", async (member) => {
 
         try {
             const WelcomeChannelId = "1177539460548796416";
