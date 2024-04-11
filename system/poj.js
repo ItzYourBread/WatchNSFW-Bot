@@ -1,7 +1,7 @@
 import { GuildData } from '../database/GuildData.js';
 
 export function poj(client) {
-    client.on('guildMemberAdd', async (member) => {
+    client.on('guildMemberAdd', async (guild, member) => {
 
         let guildData = await GuildData.findOne({ guildID: "1176811262202626118" });
 
