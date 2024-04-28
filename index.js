@@ -1,5 +1,5 @@
 import { Client } from 'eris';
-import { listener, command, database } from './utils/index.js';
+import { listener, command } from './utils/index.js';
 import figlet from 'figlet';
 import chalk from 'chalk';
 import 'dotenv/config';
@@ -30,7 +30,7 @@ const client = new Client(process.env.TOKEN, {
 
 client.config = config;
 
-database.connect();
+// database.connect();
 
 listener.ready(client);
 listener.error(client);
