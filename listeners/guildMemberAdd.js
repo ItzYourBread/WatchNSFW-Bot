@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { GuildData } from '../database/GuildData.js';
+// import { GuildData } from '../database/GuildData.js';
 
 export function guildMemberAdd(client) {
 	client.on('guildMemberAdd', async (guild, member) => {
@@ -22,35 +22,35 @@ export function guildMemberAdd(client) {
 			console.error('Error:', error);
 		}
 
-		let guildData = await GuildData.findOne({ guildID: "1176811262202626118" });
+		// let guildData = await GuildData.findOne({ guildID: "1176811262202626118" });
 
-		if (!guildData) {
-			guildData = new GuildData({ guildID: "1176811262202626118", collabChannels: [] });
-		}
+		// if (!guildData) {
+		// 	guildData = new GuildData({ guildID: "1176811262202626118", collabChannels: [] });
+		// }
 
-		try {
-			for (let i = guildData.collabChannels.length - 1; i >= 0; i--) {
-				const channelData = guildData.collabChannels[i];
-				const guild = client.guilds.get("1176811262202626118");
-				if (!guild) {
-					console.error('Guild not found.');
-					return; // Skip this iteration if guild not found
-				}
+		// try {
+		// 	for (let i = guildData.collabChannels.length - 1; i >= 0; i--) {
+		// 		const channelData = guildData.collabChannels[i];
+		// 		const guild = client.guilds.get("1176811262202626118");
+		// 		if (!guild) {
+		// 			console.error('Guild not found.');
+		// 			return; // Skip this iteration if guild not found
+		// 		}
 
-				const channel = guild.channels.get(channelData[0].channelID);
+		// 		const channel = guild.channels.get(channelData[0].channelID);
 
-				if (channel) {
-					if (channelData[0].Poj) {
-						const message = await channel.createMessage(`${member.mention}`)
-						setTimeout(() => {
-							message.delete();
-						}, 3000);
-					}
-				}
-			}
-		} catch (error) {
-			console.error("Error:", error);
-		}
+		// 		if (channel) {
+		// 			if (channelData[0].Poj) {
+		// 				const message = await channel.createMessage(`${member.mention}`)
+		// 				setTimeout(() => {
+		// 					message.delete();
+		// 				}, 3000);
+		// 			}
+		// 		}
+		// 	}
+		// } catch (error) {
+		// 	console.error("Error:", error);
+		// }
 
 		try {
 			// 5 different channels to mention the new member
